@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_pos_app/core/components/menu_button.dart';
+import 'package:flutter_pos_app/core/components/spaces.dart';
 import 'package:flutter_pos_app/core/constants/colors.dart';
+import 'package:flutter_pos_app/core/extensions/build_context_ext.dart';
 import 'package:flutter_pos_app/presentation/home/bloc/product/product_bloc.dart';
+import 'package:flutter_pos_app/presentation/setting/pages/manage_product.dart';
 
+import '../../../core/assets/assets.gen.dart';
 import '../../../data/datasource/auth_local_datasource.dart';
 import '../../../data/datasource/product_local_datasource.dart';
 import '../../auth/pages/login_page.dart';
@@ -25,6 +30,24 @@ class _SettingPageState extends State<SettingPage> {
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
+          Row(
+            children: [
+              MenuButton(
+                iconPath: Assets.images.manageProduct.path,
+                label: 'Manage Product',
+                onPressed: () => context.push(const ManageProductPage()),
+                isImage: true,
+              ),
+              const SpaceWidth(15.0),
+              MenuButton(
+                iconPath: Assets.images.managePrinter.path,
+                label: 'Manage Printer',
+                onPressed: () {}, //=> context.push(const ManagePrinterPage()),
+                isImage: true,
+              ),
+            ],
+          ),
+          const SpaceHeight(50),
           BlocConsumer<ProductBloc, ProductState>(
             listener: (context, state) {
               state.maybeMap(

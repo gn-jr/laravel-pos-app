@@ -83,7 +83,7 @@ class _DashboardPageState extends State<DashboardPage> {
             ),
             NavItem(
               iconPath: Assets.icons.dashboard.path,
-              label: 'Kelola',
+              label: 'Setting',
               isActive: _selectedIndex == 3,
               onTap: () => _onItemTapped(3),
             ),
