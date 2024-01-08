@@ -1,6 +1,5 @@
 import 'package:image_picker/image_picker.dart';
 
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 class ProductRequestModel {
   final String name;
   final int price;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pos_app/presentation/home/pages/home_page.dart';
+import 'package:flutter_pos_app/presentation/order/pages/order_page.dart';
 import 'package:flutter_pos_app/presentation/setting/pages/setting_page.dart';
 
 import '../../../core/assets/assets.gen.dart';
@@ -18,9 +19,7 @@ class _DashboardPageState extends State<DashboardPage> {
 
   final List<Widget> _pages = [
     const HomePage(),
-    const Center(
-      child: Text('Order'),
-    ),
+    const OrderPage(),
     const Center(
       child: Text('History'),
     ),

@@ -100,7 +100,7 @@ class _AddProductPageState extends State<AddProductPage> {
                   });
                 },
               ),
-              const Text('Best Seller Product')
+              const Text('Best Seller Product'),
             ],
           ),
           const SpaceHeight(20.0),
@@ -141,13 +141,12 @@ class _AddProductPageState extends State<AddProductPage> {
                       final int price = priceController!.text.toIntegerFromText;
                       final int stock = stockController!.text.toIntegerFromText;
                       final Product product = Product(
-                        name: name,
-                        price: price,
-                        stock: stock,
-                        category: category,
-                        isBestSeller: isBestSeller,
-                        image: imageFile!.path,
-                      );
+                          name: name,
+                          price: price,
+                          stock: stock,
+                          category: category,
+                          isBestSeller: isBestSeller,
+                          image: imageFile!.path);
                       context
                           .read<ProductBloc>()
                           .add(ProductEvent.addProduct(product, imageFile!));

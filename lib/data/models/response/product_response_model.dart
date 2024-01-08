@@ -61,16 +61,17 @@ class Product {
   String toJson() => json.encode(toMap());
 
   factory Product.fromMap(Map<String, dynamic> json) => Product(
-        id: json["id"],
-        name: json["name"],
-        description: json["description"] ?? '',
-        price: json["price"],
-        stock: json["stock"],
-        category: json["category"],
-        image: json["image"] ?? '',
-        isBestSeller: json["is_best_seller"] == 1 ? true : false,
-        // createdAt: DateTime.parse(json["created_at"]),
-        // updatedAt: DateTime.parse(json["updated_at"]),
+      id: json["id"],
+      name: json["name"],
+      description: json["description"] ?? '',
+      price: json["price"],
+      stock: json["stock"],
+      category: json["category"],
+      image: json["image"] ?? '',
+      isBestSeller: json["is_best_seller"] == 1 ? true : false
+
+      // createdAt: DateTime.parse(json["created_at"]),
+      // updatedAt: DateTime.parse(json["updated_at"]),
       );
 
   Map<String, dynamic> toMap() => {
@@ -79,7 +80,7 @@ class Product {
         "stock": stock,
         "category": category,
         "image": image,
-        "is_best_seller": isBestSeller ? 1 : 0,
+        "is_best_seller": isBestSeller ? 1 : 0
       };
 
   Product copyWith({
@@ -106,5 +107,35 @@ class Product {
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
+  }
+
+  @override
+  bool operator ==(covariant Product other) {
+    if (identical(this, other)) return true;
+
+    return other.id == id &&
+        other.name == name &&
+        other.description == description &&
+        other.price == price &&
+        other.stock == stock &&
+        other.category == category &&
+        other.image == image &&
+        other.isBestSeller == isBestSeller &&
+        other.createdAt == createdAt &&
+        other.updatedAt == updatedAt;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+        name.hashCode ^
+        description.hashCode ^
+        price.hashCode ^
+        stock.hashCode ^
+        category.hashCode ^
+        image.hashCode ^
+        isBestSeller.hashCode ^
+        createdAt.hashCode ^
+        updatedAt.hashCode;
   }
 }
